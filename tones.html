@@ -21,6 +21,33 @@
             overflow-x: hidden; /* Allows vertical scrolling, prevents horizontal */
         }
 
+        .title-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            width: 80vw;
+            margin: 15px 0 10px 0;
+        }
+
+        .title-bar h1 {
+            margin: 0;
+            font-size: 1.8rem;
+        }
+
+        .credit-link {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: normal;
+            opacity: 0.7;
+            transition: opacity 0.3s, color 0.3s;
+        }
+
+        .credit-link:hover {
+            opacity: 1;
+            color: #64ffff;
+        }
+
         canvas {
             background-color: #1a1a2e;
             border: 2px solid #33334d;
@@ -33,7 +60,9 @@
             height: 48vh; /* Adjusted height for more controls */
         }
 
-        h1 {
+        /* The rest of your original CSS follows... */
+
+        h1 { /* This is now a fallback, the primary h1 is styled in .title-bar h1 */
             margin: 15px 0 10px 0;
             font-size: 1.8rem;
         }
@@ -182,7 +211,7 @@
             }
 
             /* Use more screen width on smaller devices */
-            canvas, .controls, .effects-rack, #pianoContainer {
+            canvas, .controls, .effects-rack, #pianoContainer, .title-bar {
                 width: 95vw;
             }
 
@@ -222,11 +251,13 @@
                 transform: scale(0.98); /* Add this line for the press effect */
             }
         }
-</style>
+    </style>
 </head>
 <body>
-
-<h1>Generative Tones</h1>
+<div class="title-bar">
+    <h1>Generative Tones</h1>
+    <a href="https://github.com/oldlamps/GenerativeTones" target="_blank" class="credit-link">by Oldlamps</a>
+</div>
 <canvas id="tonalCanvas"></canvas>
 
 <div class="controls">
